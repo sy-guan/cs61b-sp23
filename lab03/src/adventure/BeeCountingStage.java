@@ -12,12 +12,11 @@ public class BeeCountingStage implements AdventureStage {
 
     private final In in;
     private final Map<String, AdventureStage> responses;
-    private List<String> input;
+    private List<String> input = new ArrayList<>();
 
     public BeeCountingStage(In in) {
         this.in = in;
         this.responses = Map.of("go", new SpeciesListStage(in));
-        this.input = new ArrayList<>();
     }
 
     /**

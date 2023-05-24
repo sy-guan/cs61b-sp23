@@ -3,9 +3,10 @@ package timing;
 import java.util.List;
 
 public class TimingData {
-    private List<Integer> Ns;
-    private List<Double> times;
-    private List<Integer> opCounts;
+
+    private List<Integer> Ns;  // The size of the data structure, or how many elements it contains.
+    private List<Double> times; // The total time required for all operations, in seconds.
+    private List<Integer> opCounts; // The number of operations made during the experiment.
 
     public TimingData(List<Integer> Ns, List<Double> times, List<Integer> opCounts) {
         this.Ns = Ns;
