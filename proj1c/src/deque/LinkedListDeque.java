@@ -152,6 +152,11 @@ public class LinkedListDeque<T> implements Deque<T> {
     }
 
     @Override
+    public String toString(){
+        return this.toList().toString();
+    }
+
+    @Override
     public Iterator<T> iterator() {
         return new LinkedListIterator();
     }
@@ -167,5 +172,27 @@ public class LinkedListDeque<T> implements Deque<T> {
         lld.get(1);
         lld.size();
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof LinkedListDeque lld) {
+            // check sets are of the same size
+            if (lld.size != this.size) {
+                return false;
+            }
+
+            // check that all of MY items are in the other array set
+            Iterator<T> t1 = this.iterator();
+            Iterator<T> t2 = lld.iterator();
+            while (t1.hasNext() && t2.hasNext()) {
+                if (!t1.next().equals(t2.next())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
 
 }

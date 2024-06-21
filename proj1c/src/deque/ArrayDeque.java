@@ -188,6 +188,11 @@ public class ArrayDeque<T> implements Deque <T> {
         return get(index);
     }
 
+    @Override
+    public String toString(){
+        return this.toList().toString();
+    }
+
     public static void main(String[] args) {
         Deque<Integer> ad = new ArrayDeque<>();
         ad.addLast(5);
@@ -200,6 +205,27 @@ public class ArrayDeque<T> implements Deque <T> {
     @Override
     public Iterator<T> iterator() {
         return new ArrayDequeIterator();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof ArrayDeque oad) {
+            // check sets are of the same size
+            if (oad.size != this.size) {
+                return false;
+            }
+
+            // check that all of MY items are in the other array set
+            Iterator<T> t1 = this.iterator();
+            Iterator<T> t2 = oad.iterator();
+            while (t1.hasNext() && t2.hasNext()) {
+                if (!t1.next().equals(t2.next())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 }
 
