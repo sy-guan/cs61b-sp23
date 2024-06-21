@@ -87,4 +87,14 @@ public class ArrayDequeTest {
 
         assertThat(deque.toString()).isEqualTo("[null, null, null, front, middle, back, null, null]");
     }
+
+    @Test
+    public void testZero() {
+        Deque<String> deque = new ArrayDeque<>();
+        deque.addFirst("middle");
+        deque.addFirst("front");
+        deque.addLast("back");
+
+        assertThat(deque.get(0)).isEqualTo("front");
+    }
 }

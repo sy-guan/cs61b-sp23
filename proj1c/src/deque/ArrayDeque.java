@@ -12,8 +12,8 @@ public class ArrayDeque<T> implements Deque <T> {
     public ArrayDeque() {
         size = 0;
         items = (T[]) new Object[8];
-        nextFirst = 4;
-        nextLast = 5;
+        nextFirst = 0;
+        nextLast = 1;
     }
 
     private class ArrayDequeIterator implements Iterator<T> {
