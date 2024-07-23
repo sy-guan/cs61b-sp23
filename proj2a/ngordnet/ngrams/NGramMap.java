@@ -19,7 +19,7 @@ public class NGramMap {
 
     private static final int MIN_YEAR = 1400;
     private static final int MAX_YEAR = 2100;
-    // TODO: Add any necessary static/instance variables.
+
     private TimeSeries countsTS;
     private HashMap<String, TimeSeries> wordsHM;
 
@@ -27,7 +27,6 @@ public class NGramMap {
      * Constructs an NGramMap from WORDSFILENAME and COUNTSFILENAME.
      */
     public NGramMap(String wordsFilename, String countsFilename) {
-        // TODO: Fill in this constructor. See the "NGramMap Tips" section of the spec for help.
         wordsHM = new HashMap();
         countsTS = new TimeSeries();
 
@@ -78,9 +77,8 @@ public class NGramMap {
      * NGramMap. This is also known as a "defensive copy".
      */
     public TimeSeries countHistory(String word, int startYear, int endYear) {
-        // TODO: Fill in this method.
-
         TimeSeries historyTS = new TimeSeries(wordsHM.get(word), startYear, endYear);
+
         return historyTS;
     }
 
@@ -91,7 +89,6 @@ public class NGramMap {
      * NGramMap. This is also known as a "defensive copy".
      */
     public TimeSeries countHistory(String word) {
-        // TODO: Fill in this method.
         TimeSeries historyTS = new TimeSeries();
         // Copy TimeSeries for word in words HashMap into historyTS.
         historyTS.putAll(wordsHM.get(word));
@@ -103,7 +100,6 @@ public class NGramMap {
      * Returns a defensive copy of the total number of words recorded per year in all volumes.
      */
     public TimeSeries totalCountHistory() {
-        // TODO: Fill in this method.
         TimeSeries totalCountTS = new TimeSeries();
         // Copy Counts TimeSeries.
         totalCountTS.putAll(countsTS);
@@ -141,7 +137,6 @@ public class NGramMap {
      */
     public TimeSeries summedWeightHistory(Collection<String> words,
                                           int startYear, int endYear) {
-
         TimeSeries summedWeightTS = new TimeSeries();
 
         // For word in words, sum every weight history of the word.
@@ -157,10 +152,8 @@ public class NGramMap {
      * Returns the summed relative frequency per year of all words in WORDS.
      */
     public TimeSeries summedWeightHistory(Collection<String> words) {
-        
         TimeSeries summedWeightTS = summedWeightHistory(words, MIN_YEAR, MAX_YEAR);
 
         return summedWeightTS;
     }
-
 }
